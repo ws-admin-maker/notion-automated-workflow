@@ -1,39 +1,10 @@
-Found 20 accessible objects.
+Found 5 accessible objects.
+[DATABASE] 📌 文書目録 (Knowledge Index) (ID: db4b008c-af5a-4240-b942-d0e44d09c1ac)
 [PAGE] あおい調剤情報共有 (ID: 30c03344-ad0f-808c-8470-c4534446ad65)
        Parent: workspace - True
-[DATABASE] 文書管理データベース（新） (ID: db4b008c-af5a-4240-b942-d0e44d09c1ac)
 [PAGE] 📌 目録 (Knowledge Index) (ID: 30c03344-ad0f-8115-b6fb-cd2bde5d3673)
        Parent: page_id - 30c03344-ad0f-808c-8470-c4534446ad65
-[PAGE] DI (ID: 30c03344-ad0f-80d6-9eea-ceb9d26d6f2d)
-       Parent: page_id - 30c03344-ad0f-808c-8470-c4534446ad65
-[PAGE] 運営委員会　R8活動予定 - 年間スケジュール (ID: 30c03344-ad0f-81db-b1c5-f7f5b0e5521a)
-       Parent: page_id - 2ac03344-ad0f-800b-a46e-c6234cdf6936
-[PAGE] Notionにようこそ！ (ID: 2ac03344-ad0f-800b-a46e-c6234cdf6936)
-       Parent: workspace - True
-[PAGE] 運営委員会　R8活動予定 - 運営委員会まとめ (ID: 30c03344-ad0f-8140-9411-c2e102e921cf)
-       Parent: page_id - 2ac03344-ad0f-800b-a46e-c6234cdf6936
-[PAGE] R8委員会編成 - R8年委員会草案 (ID: 30c03344-ad0f-81e5-8c92-f7b038f01163)
-       Parent: page_id - 2ac03344-ad0f-800b-a46e-c6234cdf6936
-[PAGE] R8委員会編成 - R8年委員会草案 (ID: 30c03344-ad0f-81fd-b467-ff621e403238)
-       Parent: page_id - 30c03344-ad0f-8133-8a2e-ed28c9261bed
-[PAGE] 委員会組成 (ID: 30c03344-ad0f-8133-8a2e-ed28c9261bed)
-       Parent: page_id - 2ac03344-ad0f-800b-a46e-c6234cdf6936
-[PAGE] R8委員会編成 - R8年委員会草案 (ID: 30c03344-ad0f-810c-8005-d175db094f5d)
-       Parent: page_id - 2ac03344-ad0f-800b-a46e-c6234cdf6936
 [PAGE] スマレジにCSVで商品登録する方法 (ID: 2d303344-ad0f-8071-a33c-d5a5a1c21319)
        Parent: workspace - True
-[PAGE] マニュアルテンプレート (ID: 2bf03344-ad0f-80df-8199-e99cf0b42c1d)
-       Parent: workspace - True
-[PAGE] No Title (ID: 2b203344-ad0f-80e8-82b1-d6826b4a4125)
-       Parent: database_id - 2ac03344-ad0f-8013-9260-dea6c9e5e102
 [PAGE] No Title (ID: 2be03344-ad0f-804d-a3f0-c779160a6d55)
        Parent: workspace - True
-[PAGE] No Title (ID: 2ac03344-ad0f-8072-ae6d-ecddf1b55f87)
-       Parent: database_id - 2ac03344-ad0f-8013-9260-dea6c9e5e102
-[DATABASE] 運用マニュアル (ID: 2ac03344-ad0f-8013-9260-dea6c9e5e102)
-[PAGE] No Title (ID: 2ac03344-ad0f-8098-b1b0-c2a28616b960)
-       Parent: database_id - 2ac03344-ad0f-8013-9260-dea6c9e5e102
-[PAGE] No Title (ID: 2ac03344-ad0f-80d4-b869-f021575ccf37)
-       Parent: database_id - 2ac03344-ad0f-8013-9260-dea6c9e5e102
-[PAGE] No Title (ID: 2ac03344-ad0f-80e8-bb1c-dd645d1eee4d)
-       Parent: database_id - 2ac03344-ad0f-8013-9260-dea6c9e5e102
