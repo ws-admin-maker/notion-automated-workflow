@@ -1,6 +1,7 @@
-Found 19 accessible objects.
+Found 20 accessible objects.
 [PAGE] あおい調剤情報共有 (ID: 30c03344-ad0f-808c-8470-c4534446ad65)
        Parent: workspace - True
+[DATABASE] 文書管理データベース（新） (ID: db4b008c-af5a-4240-b942-d0e44d09c1ac)
 [PAGE] 📌 目録 (Knowledge Index) (ID: 30c03344-ad0f-8115-b6fb-cd2bde5d3673)
        Parent: page_id - 30c03344-ad0f-808c-8470-c4534446ad65
 [PAGE] DI (ID: 30c03344-ad0f-80d6-9eea-ceb9d26d6f2d)
