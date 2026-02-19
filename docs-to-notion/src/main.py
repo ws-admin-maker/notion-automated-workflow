@@ -35,12 +35,20 @@ def archive_file(path: str):
     shutil.move(path, dest)
     console.print(f"  📦 アーカイブ移動完了: {dest}")
 
+def guess_category(filename: str) -> str:
+    """ファイル名からカテゴリーを推測する"""
+    if "委員会" in filename: return "委員会"
+    if "マニュアル" in filename: return "マニュアル"
+    if "事務" in filename: return "事務"
+    return "その他"
+
 def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
     name = os.path.basename(path)
     try:
         current_path = path
         ftype = detect_type(current_path)
-        console.print(f"\n[bold blue]📄 処理中: {name} ({ftype})[/bold blue]")
+        cat = guess_category(name)
+        console.print(f"\n[bold blue]📄 処理中: {name} ({ftype}) -> カテゴリー: {cat}[/bold blue]")
 
         if ftype == "word_legacy":
             console.print("  🔄 .doc → .docx に変換中...")
@@ -55,7 +63,8 @@ def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
                 md = convert_to_markdown(sheet, source_type="excel")
                 blocks = markdown_to_notion_blocks(md)
                 title = f"{os.path.splitext(name)[0]} - {sheet.name}"
-                url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id, ftype="Excel", source=name)
+                url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id, 
+                                        ftype="Excel", source=name, cat=cat)
                 console.print(f"  ✅ ページ作成: {url}")
 
         elif ftype == "word":
@@ -64,7 +73,8 @@ def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
             md = convert_to_markdown(elements, source_type="word")
             blocks = markdown_to_notion_blocks(md)
             title = os.path.splitext(name)[0]
-            url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id, ftype="Word", source=name)
+            url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id, 
+                                    ftype="Word", source=name, cat=cat)
             console.print(f"  ✅ ページ作成: {url}")
 
         # 正常終了したらアーカイブ移動
