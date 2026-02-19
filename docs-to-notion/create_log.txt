@@ -1,0 +1,7 @@
+📁 コンテナページ作成中: '委員会組成'
+  ✅ コンテナページ作成: https://www.notion.so/30c03344ad0f81338a2eed28c9261bed
+📊 1ファイルを処理します
+
+📄 R8委員会編成.xlsx
+  ✅ 1シート検出
+  ✅ ページ作成: https://www.notion.so/R8-R8-30c03344ad0f81fdb467ff621e403238

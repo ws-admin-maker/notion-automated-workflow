@@ -1,0 +1,2 @@
+Error appending blocks: 404
+{"object":"error","status":404,"code":"object_not_found","message":"Could not find block with ID: 180a308c-d372-44a9-8086-b739510811f8. Make sure the relevant pages and databases are shared with your integration.","request_id":"2d997a28-397b-46d7-b74d-95e3f5f899a2"}
