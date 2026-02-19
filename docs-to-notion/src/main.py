@@ -55,7 +55,7 @@ def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
                 md = convert_to_markdown(sheet, source_type="excel")
                 blocks = markdown_to_notion_blocks(md)
                 title = f"{os.path.splitext(name)[0]} - {sheet.name}"
-                url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id)
+                url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id, ftype="Excel", source=name)
                 console.print(f"  ✅ ページ作成: {url}")
 
         elif ftype == "word":
@@ -64,7 +64,7 @@ def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
             md = convert_to_markdown(elements, source_type="word")
             blocks = markdown_to_notion_blocks(md)
             title = os.path.splitext(name)[0]
-            url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id)
+            url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id, ftype="Word", source=name)
             console.print(f"  ✅ ページ作成: {url}")
 
         # 正常終了したらアーカイブ移動
