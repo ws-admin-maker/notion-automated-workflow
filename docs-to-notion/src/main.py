@@ -50,6 +50,9 @@ def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
         cat = guess_category(name)
         console.print(f"\n[bold blue]📄 処理中: {name} ({ftype}) -> カテゴリー: {cat}[/bold blue]")
 
+        # ハイブリッド構成：カテゴリーフォルダの存在を確認（なければ作成）
+        creator.ensure_category_folder(cat)
+
         if ftype == "word_legacy":
             console.print("  🔄 .doc → .docx に変換中...")
             current_path = convert_doc_to_docx(current_path)
