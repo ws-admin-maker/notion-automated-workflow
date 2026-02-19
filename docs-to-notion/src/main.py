@@ -1,4 +1,5 @@
-import sys, os
+import sys, os, shutil
+from datetime import datetime
 from rich.console import Console
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -20,20 +21,35 @@ def detect_type(path: str) -> str:
     if ext == ".doc": return "word_legacy"
     raise ValueError(f"未対応形式: {ext}")
 
+def archive_file(path: str):
+    """ファイルを archive フォルダに移動する"""
+    archive_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "archive")
+    if not os.path.exists(archive_dir):
+        os.makedirs(archive_dir)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    name = os.path.basename(path)
+    new_name = f"{timestamp}_{name}"
+    dest = os.path.join(archive_dir, new_name)
+    
+    shutil.move(path, dest)
+    console.print(f"  📦 アーカイブ移動完了: {dest}")
+
 def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
     name = os.path.basename(path)
     try:
-        ftype = detect_type(path)
+        current_path = path
+        ftype = detect_type(current_path)
         console.print(f"\n[bold blue]📄 処理中: {name} ({ftype})[/bold blue]")
 
         if ftype == "word_legacy":
             console.print("  🔄 .doc → .docx に変換中...")
-            path = convert_doc_to_docx(path)
+            current_path = convert_doc_to_docx(current_path)
             ftype = "word"
             console.print("  ✅ 変換完了")
 
         if ftype == "excel":
-            sheets = read_excel(path)
+            sheets = read_excel(current_path)
             console.print(f"  ✅ {len(sheets)}シート検出")
             for sheet in sheets:
                 md = convert_to_markdown(sheet, source_type="excel")
@@ -43,13 +59,16 @@ def process_file(path: str, creator: NotionPageCreator, parent_id: str = None):
                 console.print(f"  ✅ ページ作成: {url}")
 
         elif ftype == "word":
-            elements = read_word(path)
+            elements = read_word(current_path)
             console.print(f"  ✅ {len(elements)}要素検出")
             md = convert_to_markdown(elements, source_type="word")
             blocks = markdown_to_notion_blocks(md)
             title = os.path.splitext(name)[0]
             url = creator.create_page(title=title, blocks=blocks, parent_id=parent_id)
             console.print(f"  ✅ ページ作成: {url}")
+
+        # 正常終了したらアーカイブ移動
+        archive_file(path)
 
     except Exception as e:
         console.print(f"  [red]❌ エラー: {e}[/red]")
